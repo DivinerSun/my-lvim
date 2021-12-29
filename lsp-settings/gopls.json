@@ -1,0 +1,12 @@
+{
+  "gopls": {
+    "formatting.local": "goimports -local",
+    "formatting.gofumpt": true,
+    "ui.completion.matcher": "Fuzzy",
+    "ui.completion.usePlaceholders": true,
+    "ui.diagnostic.analyses": {
+      "unreachable": true,
+      "unusedparams": true
+    }
+  }
+}
