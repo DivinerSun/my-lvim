@@ -17,14 +17,24 @@ local formatters = require("lvim.lsp.null-ls.formatters")
 formatters.setup({
 	{
 		exe = "prettier",
-		filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact", "vue" },
+		filetypes = {
+			"typescript",
+			"typescriptreact",
+			"javascript",
+			"javascriptreact",
+			"vue",
+			"html",
+			"css",
+			"less",
+			"scss",
+		},
 	},
 })
 local linters = require("lvim.lsp.null-ls.linters")
 linters.setup({
 	{
 		exe = "eslint_d",
-		filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact", "vue" },
+		filetypes = { "vue", "html", "css", "less", "scss" },
 	},
 })
 
