@@ -1,7 +1,3 @@
--- general
-lvim.format_on_save = true
-lvim.colorscheme = "tokyonight"
-
 -- 快捷键
 require("user.keys")
 require("user.bufferline")

@@ -1,3 +1,6 @@
+-- general
+lvim.format_on_save = true
+lvim.colorscheme = "tokyonight"
 lvim.transparent_window = true
 vim.opt.wrap = false
 lvim.debug = false
