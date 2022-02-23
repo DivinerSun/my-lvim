@@ -29,8 +29,17 @@ formatters.setup({
 local linters = require("lvim.lsp.null-ls.linters")
 linters.setup({
 	{
-		exe = "eslint_d",
-		filetypes = { "vue", "css", "less", "scss" },
+		exe = "eslint",
+		filetypes = {
+			"typescript",
+			"typescriptreact",
+			"javascript",
+			"javascriptreact",
+			"vue",
+			"css",
+			"less",
+			"scss",
+		},
 	},
 })
 
