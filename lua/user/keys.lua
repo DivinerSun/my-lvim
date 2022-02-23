@@ -17,7 +17,7 @@ lvim.keys.normal_mode["<C-k>"] = "5k"
 lvim.keys.visual_mode["<C-j>"] = "5j"
 lvim.keys.visual_mode["<C-k>"] = "5k"
 
-lvim.keys.insert_mode["kj"] = "<Esc>o<CR><ESC>ki"
+lvim.keys.insert_mode["kj"] = "<Esc>o<ESC>ki"
 
 -- 格式化快捷键
 lvim.keys.normal_mode["<S-f>"] = "<cmd>Neoformat<CR>"
