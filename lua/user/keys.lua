@@ -25,7 +25,11 @@ lvim.keys.normal_mode["<S-f>"] = "<cmd>Neoformat<CR>"
 lvim.keys.normal_mode["<esc><esc>"] = "<cmd>nohlsearch<cr>"
 lvim.keys.normal_mode["<TAB>"] = "<cmd>lua vim.lsp.buf.signature_help()<CR>"
 lvim.keys.visual_mode["p"] = [["_dP]]
-lvim.keys.normal_mode["Q"] = "<cmd>BufferClose!<CR>"
+-- lvim.keys.normal_mode["Q"] = "<cmd>BufferClose!<CR>"
+lvim.keys.normal_mode["Q"] = "<cmd>BufferKill<CR>"
+lvim.keys.normal_mode["<A-h>"] = "<cmd>BufferLineMovePrev<CR>"
+lvim.keys.normal_mode["<A-l>"] = "<cmd>BufferLineMoveNext<CR>"
+
 lvim.keys.normal_mode["<F1>"] = ":e ~/Notes/<cr>"
 lvim.keys.normal_mode["<F3>"] = ":e .<cr>"
 lvim.keys.normal_mode["<F4>"] = "<cmd>Telescope resume<cr>"
