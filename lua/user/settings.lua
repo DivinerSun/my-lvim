@@ -7,6 +7,9 @@ lvim.debug = false
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.cmd([[set iskeyword+=-]])
+-- 代码折叠设置
+vim.cmd([[set foldmethod=indent]])
+vim.cmd([[set nofoldenable]])
 -- vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 pcall(require, "profile")
 
