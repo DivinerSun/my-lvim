@@ -22,6 +22,9 @@ lvim.keys.insert_mode["kj"] = "<Esc>o<ESC>ki"
 -- 格式化快捷键
 lvim.keys.normal_mode["<S-f>"] = "<cmd>Neoformat<CR>"
 
+-- 新一行
+lvim.keys.insert_mode["<C-o>"] = "<ESC>o"
+
 lvim.keys.normal_mode["<esc><esc>"] = "<cmd>nohlsearch<cr>"
 lvim.keys.normal_mode["<TAB>"] = "<cmd>lua vim.lsp.buf.signature_help()<CR>"
 lvim.keys.visual_mode["p"] = [["_dP]]
