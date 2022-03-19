@@ -29,7 +29,7 @@ lvim.keys.normal_mode["<esc><esc>"] = "<cmd>nohlsearch<cr>"
 lvim.keys.normal_mode["<TAB>"] = "<cmd>lua vim.lsp.buf.signature_help()<CR>"
 lvim.keys.visual_mode["p"] = [["_dP]]
 -- lvim.keys.normal_mode["Q"] = "<cmd>BufferClose!<CR>"
-lvim.keys.normal_mode["Q"] = "<cmd>BufferKill<CR>"
+lvim.keys.normal_mode["Q"] = "<cmd>bdel<CR>"
 lvim.keys.normal_mode["<A-h>"] = "<cmd>BufferLineMovePrev<CR>"
 lvim.keys.normal_mode["<A-l>"] = "<cmd>BufferLineMoveNext<CR>"
 
@@ -115,3 +115,47 @@ lvim.builtin.telescope.on_config_done = function()
 	lvim.builtin.telescope.defaults.mappings.i["<C-n>"] = actions.cycle_history_next
 	lvim.builtin.telescope.defaults.mappings.i["<C-p>"] = actions.cycle_history_prev
 end
+
+-- NvimTree
+lvim.builtin.nvimtree.setup.view.mappings.custom_only = true
+lvim.builtin.nvimtree.setup.view.mappings.list = {
+	{ key = { "<CR>", "o", "<2-LeftMouse>" }, action = "edit" },
+	{ key = "<C-e>", action = "edit_in_place" },
+	{ key = { "O" }, action = "edit_no_picker" },
+	{ key = { "<2-RightMouse>", "<C-]>" }, action = "cd" },
+	{ key = "<C-v>", action = "vsplit" },
+	{ key = "<C-x>", action = "split" },
+	{ key = "<C-t>", action = "tabnew" },
+	{ key = "<", action = "prev_sibling" },
+	{ key = ">", action = "next_sibling" },
+	{ key = "P", action = "parent_node" },
+	{ key = "<BS>", action = "close_node" },
+	{ key = "<Tab>", action = "preview" },
+	{ key = "K", action = "first_sibling" },
+	{ key = "J", action = "last_sibling" },
+	{ key = "I", action = "toggle_ignored" },
+	{ key = "H", action = "toggle_dotfiles" },
+	{ key = "R", action = "refresh" },
+	{ key = "a", action = "create" },
+	{ key = "d", action = "remove" },
+	{ key = "D", action = "trash" },
+	{ key = "r", action = "rename" },
+	{ key = "l", action = "edit" },
+	{ key = "<C-r>", action = "full_rename" },
+	{ key = "x", action = "cut" },
+	{ key = "c", action = "copy" },
+	{ key = "p", action = "paste" },
+	{ key = "y", action = "copy_name" },
+	{ key = "Y", action = "copy_path" },
+	{ key = "gy", action = "copy_absolute_path" },
+	{ key = "[c", action = "prev_git_item" },
+	{ key = "]c", action = "next_git_item" },
+	{ key = "-", action = "dir_up" },
+	{ key = "s", action = "system_open" },
+	{ key = "q", action = "close" },
+	{ key = "g?", action = "toggle_help" },
+	{ key = "W", action = "collapse_all" },
+	{ key = "S", action = "search_node" },
+	{ key = "<C-i>", action = "toggle_file_info" },
+	{ key = ".", action = "run_file_command" },
+}

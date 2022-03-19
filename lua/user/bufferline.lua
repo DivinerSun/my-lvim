@@ -5,6 +5,7 @@ vim.g.bufferline = {
 
 	-- Enable/disable auto-hiding the tab bar when there is a single buffer
 	auto_hide = false,
+	always_show_bufferline = true,
 
 	-- Enables/disable clickable tabs
 	--  - left-click: go to buffer
@@ -34,5 +35,7 @@ vim.g.bufferline = {
 	icon_separator_inactive = "▎",
 	icon_close_tab = "",
 	icon_close_tab_modified = "●",
-	-- icon_pinned = "📌",
+	icon_pinned = "📌",
 }
+
+lvim.builtin.bufferline.options.always_show_bufferline = true

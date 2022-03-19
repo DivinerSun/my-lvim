@@ -45,7 +45,6 @@ lvim.plugins = {
 			vim.g.gitblame_highlight_group = "LineNr"
 		end,
 	},
-
 	{
 		"ruifm/gitlinker.nvim",
 		event = "BufRead",
@@ -135,42 +134,22 @@ lvim.plugins = {
 			require("user.todo_comments").config()
 		end,
 	},
-
 	{
 		"tzachar/cmp-tabnine",
 		config = function()
 			local tabnine = require("cmp_tabnine.config")
-			tabnine:setup({
-				max_lines = 1000,
-				max_num_results = 20,
-				sort = true,
-			})
+			tabnine:setup({ max_lines = 1000, max_num_results = 20, sort = true })
 		end,
 
 		run = "./install.sh",
 		requires = "hrsh7th/nvim-cmp",
 	},
-	{
-		"dccsillag/magma-nvim",
-	},
-	{
-		"metakirby5/codi.vim",
-		cmd = "Codi",
-	},
-	{
-		"kevinhwang91/nvim-bqf",
-		event = "BufRead",
-	},
+	{ "dccsillag/magma-nvim" },
+	{ "metakirby5/codi.vim", cmd = "Codi" },
+	{ "kevinhwang91/nvim-bqf", event = "BufRead" },
 
-	{
-		"iamcco/markdown-preview.nvim",
-		run = "cd app && npm install",
-		ft = "markdown",
-	},
-	{
-		"nvim-treesitter/playground",
-		event = "BufRead",
-	},
+	{ "iamcco/markdown-preview.nvim", run = "cd app && npm install", ft = "markdown" },
+	{ "nvim-treesitter/playground", event = "BufRead" },
 	{
 		"windwp/nvim-ts-autotag",
 		config = function()
@@ -178,11 +157,7 @@ lvim.plugins = {
 		end,
 		event = "InsertEnter",
 	},
-	{
-		"sindrets/diffview.nvim",
-		event = "BufRead",
-	},
-
+	{ "sindrets/diffview.nvim", event = "BufRead" },
 	{
 		"MattesGroeger/vim-bookmarks",
 		config = function()
@@ -205,24 +180,8 @@ lvim.plugins = {
 		end,
 		commit = "a86f6387a5dabf0102b4cab433b414a29456f792",
 	},
-	{
-		"tom-anders/telescope-vim-bookmarks.nvim",
-	},
-
-	{
-		"sbdchd/neoformat",
-	},
+	{ "tom-anders/telescope-vim-bookmarks.nvim" },
+	{ "sbdchd/neoformat" },
 	-- WakaTime
 	{ "wakatime/vim-wakatime" },
-
-	-- Flutter
-	{
-		"dart-lang/dart-vim-plugin",
-	},
-	{ "natebosch/vim-lsc" },
-	{ "natebosch/vim-lsc-dart" },
-	{
-		"akinsho/flutter-tools.nvim",
-		requires = "nvim-lua/plenary.nvim",
-	},
 }

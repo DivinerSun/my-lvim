@@ -4,6 +4,12 @@ local function clock()
 	return " " .. os.date("%H:%M")
 end
 
+-- TODO: 展示今日编码时长
+local function code_time()
+	local time = vim.cmd([[WakaTimeToday]])
+	return "Today: " .. time
+end
+
 local function lsp_progress()
 	local messages = vim.lsp.util.get_progress_messages()
 	if #messages == 0 then
@@ -24,11 +30,7 @@ vim.cmd([[autocmd User LspProgressUpdate let &ro = &ro]])
 local function diff_source()
 	local gitsigns = vim.b.gitsigns_status_dict
 	if gitsigns then
-		return {
-			added = gitsigns.added,
-			modified = gitsigns.changed,
-			removed = gitsigns.removed,
-		}
+		return { added = gitsigns.added, modified = gitsigns.changed, removed = gitsigns.removed }
 	end
 end
 
@@ -273,11 +275,7 @@ M.config = function()
 					padding = { left = 0, right = 0 },
 					-- left_padding = 1,
 				},
-				{
-					"filename",
-					cond = conditions.buffer_not_empty,
-					color = { fg = colors.fg, gui = "bold" },
-				},
+				{ "filename", cond = conditions.buffer_not_empty, color = { fg = colors.fg, gui = "bold" } },
 			},
 			lualine_x = {},
 		},
@@ -307,6 +305,14 @@ M.config = function()
 		padding = { left = 0, right = 0 },
 		-- left_padding = 1,
 	})
+	-- ins_left({
+	--   -- 编码时长
+	--   function()
+	--     return code_time()
+	--   end,
+	--   cond = conditions.hide_in_width,
+	--   color = {fg = colors.orange}
+	-- })
 	ins_left({
 		-- filesize component
 		function()
@@ -442,14 +448,9 @@ M.config = function()
 		enabled = function()
 			return testing() ~= nil
 		end,
-		hl = {
-			fg = colors.fg,
-		},
+		hl = { fg = colors.fg },
 		left_sep = " ",
-		right_sep = {
-			str = " |",
-			hl = { fg = colors.fg },
-		},
+		right_sep = { str = " |", hl = { fg = colors.fg } },
 	})
 	ins_left({
 		provider = function()
@@ -462,15 +463,10 @@ M.config = function()
 		enabled = function()
 			return using_session()
 		end,
-		hl = {
-			fg = colors.fg,
-		},
+		hl = { fg = colors.fg },
 	})
 
-	ins_left({
-		lsp_progress,
-		cond = conditions.hide_small,
-	})
+	ins_left({ lsp_progress, cond = conditions.hide_small })
 
 	-- Insert mid section. You can make any number of sections in neovim :)
 	-- for lualine it's any number greater then 2
@@ -499,7 +495,7 @@ M.config = function()
 			modified = { fg = colors.light_blue },
 			removed = { fg = colors.red },
 		},
-		color = {},
+		color = { bg = colors.bg },
 		cond = conditions.hide_in_width,
 		-- cond = nil,
 	})
@@ -590,21 +586,22 @@ M.config = function()
 		-- right_padding = 0,
 		color = { fg = colors.cyan },
 	})
-	-- ins_right {
-	--   "fileformat",
-	--   -- upper = true,
-	--   fmt = string.upper,
-	--   icons_enabled = true, -- I think icons are cool but Eviline doesn't have them. sigh
-	--   color = { fg = colors.green, gui = "bold" },
-	--   cond = conditions.hide_in_width,
-	-- }
+	-- ins_right({
+	-- 	"fileformat",
+	-- 	-- upper = true,
+	-- 	fmt = string.upper,
+	-- 	icons_enabled = true, -- I think icons are cool but Eviline doesn't have them. sigh
+	-- 	color = { fg = colors.green, gui = "bold" },
+	-- 	cond = conditions.hide_in_width,
+	-- })
 
-	-- ins_right {
-	--   clock,
-	--   cond = conditions.hide_in_width,
-	--   color = { fg = colors.blue, bg = colors.bg },
-	-- }
-
+	ins_right({ clock, cond = conditions.hide_in_width, color = { fg = colors.blue, bg = colors.bg } })
+	-- ins_right({
+	--   "filename",
+	--   cond = conditions.buffer_not_empty,
+	--   padding = {left = 1, right = 1},
+	--   color = {fg = colors.fg, gui = "bold"}
+	-- })
 	ins_right({
 		"filetype",
 		cond = conditions.hide_in_width,
@@ -616,7 +613,17 @@ M.config = function()
 		function()
 			local current_line = vim.fn.line(".")
 			local total_lines = vim.fn.line("$")
-			local chars = { "__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
+			local chars = {
+				"__",
+				"▁▁",
+				"▂▂",
+				"▃▃",
+				"▄▄",
+				"▅▅",
+				"▆▆",
+				"▇▇",
+				"██",
+			}
 			local line_ratio = current_line / total_lines
 			local index = math.ceil(line_ratio * #chars)
 			return chars[index]
