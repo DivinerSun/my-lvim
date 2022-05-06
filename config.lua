@@ -1,9 +1,9 @@
+-- 设置
+require("user.settings")
 -- 快捷键
 require("user.keys")
 -- 插件
 require("user.plugins")
--- 设置
-require("user.settings")
 require("user.treesitter")
 require("user.bufferline")
 

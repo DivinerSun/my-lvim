@@ -22,7 +22,7 @@ vim.g.tokyonight_italic_variables = true
 vim.g.tokyonight_transparent_sidebar = true
 vim.g.tokyonight_colors = {
 	comment = "#f0a1a8",
-	fg_gutter = "#ea8677",
+	fg_gutter = "#813c85",
 	-- dark5 = "#ffffff",
 }
 vim.cmd([[colorscheme tokyonight]])

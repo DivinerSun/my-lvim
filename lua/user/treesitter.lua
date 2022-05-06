@@ -27,5 +27,12 @@ lvim.builtin.treesitter.textobjects = {
 			["[]"] = "@class.outer",
 		},
 	},
-	autotag = { enable = true },
 }
+
+lvim.builtin.treesitter.autotag.enable = true
+
+require("nvim-treesitter.configs").setup({
+	autotag = {
+		enable = true,
+	},
+})

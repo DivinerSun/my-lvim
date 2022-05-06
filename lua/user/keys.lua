@@ -4,7 +4,7 @@ lvim.format_on_save = true
 lvim.lsp.automatic_servers_installation = true
 
 -- Customs
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+lvim.keys.normal_mode["<C-s>"] = ":lua require('user.utils').SaveAll()<cr>" -- 保存所有
 lvim.keys.normal_mode["<C-l>"] = "<S-$>"
 lvim.keys.normal_mode["<C-h>"] = "<S-^>"
 lvim.keys.insert_mode["<C-h>"] = "<Home>"
@@ -29,7 +29,7 @@ lvim.keys.normal_mode["<esc><esc>"] = "<cmd>nohlsearch<cr>"
 lvim.keys.normal_mode["<TAB>"] = "<cmd>lua vim.lsp.buf.signature_help()<CR>"
 lvim.keys.visual_mode["p"] = [["_dP]]
 -- lvim.keys.normal_mode["Q"] = "<cmd>BufferClose!<CR>"
-lvim.keys.normal_mode["Q"] = "<cmd>bdel<CR>"
+lvim.keys.normal_mode["Q"] = "<cmd>BufferKill<CR>"
 lvim.keys.normal_mode["<A-h>"] = "<cmd>BufferLineMovePrev<CR>"
 lvim.keys.normal_mode["<A-l>"] = "<cmd>BufferLineMoveNext<CR>"
 
